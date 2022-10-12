@@ -351,31 +351,31 @@ if opt.PU_data_table_8:
     if load == False:
         # Training ################################################
         print('Load 1---------------------------------------------\n')
-        K002 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/K002', type_data=opt.type_PU_data)
+        K002 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/K002', type_data=opt.type_PU_data)
         
-        KA01 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KA01', type_data=opt.type_PU_data)
-        KA05 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KA05', type_data=opt.type_PU_data)
-        KA07 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KA07', type_data=opt.type_PU_data)
+        KA01 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA01', type_data=opt.type_PU_data)
+        KA05 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA05', type_data=opt.type_PU_data)
+        KA07 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA07', type_data=opt.type_PU_data)
 
-        KI01 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KI01', type_data=opt.type_PU_data)
-        KI05 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KI05', type_data=opt.type_PU_data)
-        KI07 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/training/KI07', type_data=opt.type_PU_data)
+        KI01 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI01', type_data=opt.type_PU_data)
+        KI05 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI05', type_data=opt.type_PU_data)
+        KI07 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI07', type_data=opt.type_PU_data)
 
         # Testing ###################################################
         print('Load 2---------------------------------------------\n')
-        K001 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/K001', type_data=opt.type_PU_data)
+        K001 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/K001', type_data=opt.type_PU_data)
         
-        KA22 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KA22', type_data=opt.type_PU_data)
-        KA04 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KA04', type_data=opt.type_PU_data)
-        KA15 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KA15', type_data=opt.type_PU_data)
-        KA30 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KA30', type_data=opt.type_PU_data)
-        KA16 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KA16', type_data=opt.type_PU_data)
+        KA22 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA22', type_data=opt.type_PU_data)
+        KA04 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA04', type_data=opt.type_PU_data)
+        KA15 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA15', type_data=opt.type_PU_data)
+        KA30 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA30', type_data=opt.type_PU_data)
+        KA16 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KA16', type_data=opt.type_PU_data)
 
-        KI14 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KI14', type_data=opt.type_PU_data)
-        KI21 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KI21', type_data=opt.type_PU_data)
-        KI17 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KI17', type_data=opt.type_PU_data)
-        KI18 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KI18', type_data=opt.type_PU_data)
-        KI16 = load_PU_data('/content/drive/Shareddrives/newpro112233/signal_machine/new_data/testing/KI16', type_data=opt.type_PU_data)
+        KI14 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI14', type_data=opt.type_PU_data)
+        KI21 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI21', type_data=opt.type_PU_data)
+        KI17 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI17', type_data=opt.type_PU_data)
+        KI18 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI18', type_data=opt.type_PU_data)
+        KI16 = load_PU_data('/content/drive/MyDrive/Khoa/PU_data/KI16', type_data=opt.type_PU_data)
         
         # load ###############################################
         print('Load 3---------------------------------------------\n')
@@ -384,71 +384,71 @@ if opt.PU_data_table_8:
                        KA05.shape[1], KI14.shape[1], KI21.shape[1], KI17.shape[1], KI18.shape[1], KI16.shape[1]))
     
     if load:
-        Healthy_train = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_train.npy')
-        Healthy_train_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_train_label.npy')
+        Healthy_train = np.load('/content/drive/MyDrive/Khoa/PU_data/Healthy_train.npy')
+        Healthy_train_label = np.load('/content/drive/MyDrive/Khoa/PU_data/Healthy_train_label.npy')
     else:
         Healthy_train = K002[:, :min_]
         Healthy_train_label = one_hot(0, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_train.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/Healthy_train.npy', 'wb') as f:
             np.save(f, Healthy_train)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_train_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/Healthy_train_label.npy', 'wb') as f:
             np.save(f, Healthy_train_label)
 
     if load:
-        OR_Damage_train = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_train.npy')
-        OR_Damage_train_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_train_label.npy')
+        OR_Damage_train = np.load('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_train.npy')
+        OR_Damage_train_label = np.load('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_train_label.npy')
     else:
         OR_Damage_train = np.concatenate((KA01[:, :min_], KA05[:, :min_], KA07[:, :min_]))
         OR_Damage_train_label = one_hot(1, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_train.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_train.npy', 'wb') as f:
             np.save(f, OR_Damage_train)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_train_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_train_label.npy', 'wb') as f:
             np.save(f, OR_Damage_train_label)
 
     if load:
       # Adding noise to IR training data---------------------------------------------------------------------------
         # IR_Damage_train = add_noise(np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_train.npy'), 20)
-        IR_Damage_train = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_train.npy')
-        IR_Damage_train_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_train_label.npy')
+        IR_Damage_train = np.load('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_train.npy')
+        IR_Damage_train_label = np.load('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_train_label.npy')
     else:
         IR_Damage_train = np.concatenate((KI01[:, :min_], KI05[:, :min_], KI07[:, :min_]))
         IR_Damage_train_label = one_hot(2, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_train.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_train.npy', 'wb') as f:
             np.save(f, IR_Damage_train)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_train_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_train_label.npy', 'wb') as f:
             np.save(f, IR_Damage_train_label)
     
     if load:
-        Healthy_test = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_test.npy')
-        Healthy_test_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_test_label.npy')
+        Healthy_test = np.load('/content/drive/MyDrive/Khoa/PU_data/Healthy_test.npy')
+        Healthy_test_label = np.load('/content/drive/MyDrive/Khoa/PU_data/Healthy_test_label.npy')
     else:
         Healthy_test = K001[:, :min_]
         Healthy_test_label = one_hot(0, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_test.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/Healthy_test.npy', 'wb') as f:
             np.save(f, Healthy_test)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/Healthy_test_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/Healthy_test_label.npy', 'wb') as f:
             np.save(f, Healthy_test_label)
     
     if load:
-        OR_Damage_test = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_test.npy')
-        OR_Damage_test_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_test_label.npy')
+        OR_Damage_test = np.load('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_test.npy')
+        OR_Damage_test_label = np.load('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_test_label.npy')
     else:
         OR_Damage_test = np.concatenate((KA22[:, :min_], KA04[:, :min_], KA15[:, :min_], KA30[:, :min_], KA16[:, :min_]))
         OR_Damage_test_label = one_hot(1, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_test.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_test.npy', 'wb') as f:
             np.save(f, OR_Damage_test)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/OR_Damage_test_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/OR_Damage_test_label.npy', 'wb') as f:
             np.save(f, OR_Damage_test_label)
 
     if load:
-        IR_Damage_test = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_test.npy')
-        IR_Damage_test_label = np.load('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_test_label.npy')
+        IR_Damage_test = np.load('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_test.npy')
+        IR_Damage_test_label = np.load('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_test_label.npy')
     else:  
         IR_Damage_test = np.concatenate((KI14[:, :min_], KI21[:, :min_], KI17[:, :min_], KI18[:, :min_], KI16[:, :min_]))
         IR_Damage_test_label = one_hot(2, 3)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_test.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_test.npy', 'wb') as f:
             np.save(f, IR_Damage_test)
-        with open('/content/drive/Shareddrives/newpro112233/signal_machine/PU_data/case_1/IR_Damage_test_label.npy', 'wb') as f:
+        with open('/content/drive/MyDrive/Khoa/PU_data/IR_Damage_test_label.npy', 'wb') as f:
             np.save(f, IR_Damage_test_label)
 
     print('Finish loading data process!\n')
