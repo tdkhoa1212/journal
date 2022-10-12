@@ -34,79 +34,7 @@ from load_cases import get_data
 from preprocessing.denoise_signal import savitzky_golay, Fourier, SVD_denoise, Wavelet_denoise
 
 # Can use K-fold: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html
-gpus = tf.config.list_logical_devices('GPU')
-strategy = tf.distribute.MirroredStrategy(gpus)
-# callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=2)
-# callback = tf.keras.callbacks.EarlyStopping(monitor='loss', mode='min', verbose=1, patience=1)
-          
-def train(data, labels,
-          val_data, val_labels,
-          test_data, test_labels,
-          network, folder, opt):
-  
-  if opt.use_CNN_A:
-    data = np.expand_dims(data, axis=-1)
-    val_data = np.expand_dims(val_data, axis=-1)
-    model = network(opt)
-  elif opt.use_CNN_B:
-    inputs = keras.Input(shape=(354, 354, 1))
-    outputs = network(inputs)
-    model = keras.Model(inputs, outputs)
-  else:
-    model = network(opt)
-  model.compile(optimizer="Adam", loss='categorical_crossentropy', metrics=['acc', f1_m, precision_m, recall_m]) # loss='mse'
-
-  model.summary()
-  history = model.fit(data, labels,
-                      epochs     = opt.epochs,
-                      batch_size = opt.batch_size,
-                      validation_data=(val_data, val_labels),)
-                      # callbacks=[callback])
-
-  if opt.use_DNN_A:
-    model.save(opt.save + opt.model_names[0])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/DNN_A_history', 'wb') as file_pi:
-#     with open('DNN_A_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-  elif opt.use_CNN_A:
-    model.save(opt.save + opt.model_names[1])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/CNN_A_history', 'wb') as file_pi:
-#     with open('CNN_A_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-  elif opt.use_CNN_B:
-    model.save(opt.save + opt.model_names[2])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/CNN_B_history', 'wb') as file_pi:
-#     with open('CNN_A_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-  elif opt.use_CNN_C:
-    model.save(opt.save + opt.model_names[3])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/CNN_C_history', 'wb') as file_pi:
-    # with open('CNN_C_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-  elif opt.use_wavenet:
-    model.save(opt.save + opt.model_names[4])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/wavenet_history', 'wb') as file_pi:
-    # with open('CNN_C_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-  elif opt.use_wavenet_head:
-    model.save(opt.save + opt.model_names[5])
-    with open(f'/content/drive/Shareddrives/newpro112233/signal_machine/{folder}/wavenet_head_history', 'wb') as file_pi:
-    # with open('CNN_C_history', 'wb') as file_pi: 
-      pickle.dump(history.history, file_pi)
-
-  if opt.use_SNRdb: 
-    for i in range(len(opt.SNRdb)):
-      test_data = np.squeeze(test_data)
-      test = add_noise(test_data, opt.SNRdb[i])
-      test = np.expand_dims(test, axis=-1)
-      print('\n----------------Adding noise Phase -----------------------')
-      _, test_acc,  test_f1_m,  test_precision_m,  test_recall_m  = model.evaluate(test, test_labels, verbose=0)
-      print(f'Score in test set in {opt.SNRdb[i]}dB: \n Accuracy: {test_acc}, F1: {test_f1_m}, Precision: {test_precision_m}, recall: {test_recall_m}' )
-  else:
-    _, test_acc,  test_f1_m,  test_precision_m,  test_recall_m  = model.evaluate(test_data, test_labels, verbose=0)
-    print(f'Score in test set: \n Accuracy: {test_acc}, F1: {test_f1_m}, Precision: {test_precision_m}, recall: {test_recall_m}' )
-
-  
+# callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=2)     
     
 def main(opt):
   tf.get_logger().setLevel('ERROR')
@@ -189,7 +117,7 @@ def main(opt):
 
   # Machine learning models #####################################################################################################
   if opt.ML_method != None:
-    if opt.ML_method == 'SVM':
+    if opt.ML_method == 'SVM': # SVM, RandomForestClassifier, LogisticRegression, GaussianNB
       model = SVC(kernel='rbf', probability=True)
     elif opt.ML_method == 'RandomForestClassifier':
       model = RandomForestClassifier(n_estimators= 300, max_features = "sqrt", n_jobs = -1, random_state = 38)
@@ -229,7 +157,7 @@ def parse_opt(known=False):
     parser = argparse.ArgumentParser()
     
     # Models and denoising methods--------------------------
-    parser.add_argument('--ML_method',   default=None, type=str)
+    parser.add_argument('--ML_method',   default='SVM' , type=str, help='SVM, RandomForestClassifier, LogisticRegression, GaussianNB')
     parser.add_argument('--use_DNN_A',   default=False, type=bool)
     parser.add_argument('--use_DNN_B',   default=False, type=bool)
     parser.add_argument('--use_CNN_A',   default=False, type=bool)
@@ -238,8 +166,8 @@ def parse_opt(known=False):
     parser.add_argument('--use_wavenet',       default=False, type=bool)
     parser.add_argument('--use_wavenet_head',  default=False, type=bool)
     parser.add_argument('--ensemble',          default=False, type=bool)
-    parser.add_argument('--denoise', type=str, default=None, help='types of NN: DFK, Wavelet_denoise, SVD, savitzky_golay, None. DFK is our proposal.')
-    parser.add_argument('--scaler',  type=str, default=None, help='handcrafted_features, MinMaxScaler, MaxAbsScaler, StandardScaler, RobustScaler, Normalizer, QuantileTransformer, PowerTransformer')
+    parser.add_argument('--denoise', type=str, default='Wavelet_denoise', help='types of NN: DFK, Wavelet_denoise, SVD, savitzky_golay, None. DFK is our proposal.')
+    parser.add_argument('--scaler',  type=str, default='PowerTransformer', help='handcrafted_features, MinMaxScaler, MaxAbsScaler, StandardScaler, RobustScaler, Normalizer, QuantileTransformer, PowerTransformer')
     
     # Run case------------------------------------------------
     parser.add_argument('--case_0_6',  default=False,  type=bool)
@@ -253,8 +181,8 @@ def parse_opt(known=False):
     parser.add_argument('--case_13', default=False,  type=bool)  # turn on case_5_11
     parser.add_argument('--case_14', default=False,  type=bool)  # turn on case 12 and case_4_11
     
-    parser.add_argument('--PU_data_table_8',      default=False, type=bool)
-    parser.add_argument('--PU_data_table_10',     default=True, type=bool)
+    parser.add_argument('--PU_data_table_8',      default=True, type=bool)
+    parser.add_argument('--PU_data_table_10',     default=False, type=bool)
     parser.add_argument('--MFPT_data',   default=False, type=bool)
     parser.add_argument('--data_normal', default=False, type=bool)
     parser.add_argument('--data_12k',    default=False, type=bool)
@@ -264,7 +192,7 @@ def parse_opt(known=False):
     # Parameters---------------------------------------------
     parser.add_argument('--save',            type=str,   default='/content/drive/Shareddrives/newpro112233/signal_machine/', help='Position to save weights')
     parser.add_argument('--epochs',          type=int,   default=100,        help='Number of iterations for training')
-    parser.add_argument('--num_classes',     type=int,   default=64,         help='Number of classes')
+    parser.add_argument('--num_classes',     type=int,   default=3,         help='Number of classes')
     parser.add_argument('--input_shape',     type=int,   default=502,        help='shape of 1-D input data')
     parser.add_argument('--batch_size',      type=int,   default=32,         help='Number of batch size for training')
     parser.add_argument('--test_rate',       type=float, default=0.2,        help='rate of split data for testing')
