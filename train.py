@@ -105,12 +105,13 @@ def main(opt):
       print('\n------------------PowerTransformer------------------')
       X_train_all, scale = scaler(X_train_all, PowerTransformer)
       X_test = scale.transform(X_test)
-    elif opt.scaler == 'handcrafted_features':
+    else:
+      print('\n------------------none scaler------------------')
+    
+    if opt.extraction == 'handcrafted_features':
       print('\n------------------handcrafted_features------------------')
       X_train_all = handcrafted_features(X_train_all)
       X_test = handcrafted_features(X_test)
-    else:
-      print('\n------------------none scaler------------------')
   
 #   X_train, X_val, y_train, y_val = train_test_split(X_train_all, y_train_all, test_size=opt.test_rate, random_state=42, shuffle=True)
   X_train, X_val, y_train, y_val = X_train_all, X_test, y_train_all, y_test
@@ -167,7 +168,8 @@ def parse_opt(known=False):
     parser.add_argument('--use_wavenet_head',  default=False, type=bool)
     parser.add_argument('--ensemble',          default=False, type=bool)
     parser.add_argument('--denoise', type=str, default='Wavelet_denoise', help='types of NN: DFK, Wavelet_denoise, SVD, savitzky_golay, None. DFK is our proposal.')
-    parser.add_argument('--scaler',  type=str, default='PowerTransformer', help='handcrafted_features, MinMaxScaler, MaxAbsScaler, StandardScaler, RobustScaler, Normalizer, QuantileTransformer, PowerTransformer')
+    parser.add_argument('--scaler',  type=str, default='PowerTransformer', help='MinMaxScaler, MaxAbsScaler, StandardScaler, RobustScaler, Normalizer, QuantileTransformer, PowerTransformer')
+    parser.add_argument('--extraction',  type=str, default='handcrafted_features', help='handcrafted_features')
     
     # Run case------------------------------------------------
     parser.add_argument('--case_0_6',  default=False,  type=bool)
