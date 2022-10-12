@@ -209,6 +209,7 @@ def parse_opt(known=False):
     parser.add_argument('--result_dir',               type=str,     default="./result/", help='exponential_decay_rate')
     parser.add_argument('--model_dir',                type=str,     default="/content/drive/Shareddrives/newpro112233/signal_machine/", help='direction to save model')
     parser.add_argument('--load_path',                type=str,     default=None,        help='path weight')
+    parser.add_argument('--type_PU_data',             type=str,     default=None,        help='vibration, MCS1, MCS2')
     
     opt = parser.parse_known_args()[0] if known else parser.parse_args()
     return opt
