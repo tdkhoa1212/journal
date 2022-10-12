@@ -346,7 +346,7 @@ if opt.MFPT_data:
     InnerRaceFault_vload_7_label = one_hot(2, 3)
     
 if opt.PU_data_table_8:
-    load = False
+    load = True
 
     if load == False:
         print('Load Training ---------------------------------------------\n')
