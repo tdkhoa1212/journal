@@ -1,19 +1,14 @@
 from scipy.spatial.distance import cosine, euclidean
 from load_cases import get_data
 from train import parse_opt
-import angular_grad
-import tensorflow as tf
-import glob 
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import accuracy_score
 from preprocessing.utils import invert_one_hot, onehot
-
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import VotingClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import GradientBoostingClassifier

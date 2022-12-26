@@ -3,7 +3,6 @@ import os
 import numpy as np
 import tensorflow as tf
 import scipy.io
-import cv2
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import MaxAbsScaler
 from sklearn.preprocessing import StandardScaler

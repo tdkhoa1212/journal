@@ -2,7 +2,7 @@ from functools import partial
 import keras
 import tensorflow as tf
 from tensorflow_addons.layers import MultiHeadAttention
-from tensorflow.keras.layers import Conv1D, Activation, Dense, concatenate
+from tensorflow.keras.layers import Conv1D, Activation, Dense
 import keras.backend as K
 from keras import layers
 from keras import regularizers
@@ -45,12 +45,10 @@ def identity_block(input_tensor, kernel_size, filters, stage, block):
                kernel_size=kernel_size,
                strides=1,
                padding='same',
-              #  kernel_initializer='glorot_uniform',
-              #  kernel_regularizer=regularizers.l2(l=0.0001),
-              kernel_regularizer=regularizers.l1_l2(l1=1e-5, l2=1e-4),
-              bias_regularizer=regularizers.l2(1e-4),
-              activity_regularizer=regularizers.l2(1e-5),
-              name=conv_name_base + '2a')(input_tensor)
+                kernel_regularizer=regularizers.l1_l2(l1=1e-5, l2=1e-4),
+                bias_regularizer=regularizers.l2(1e-4),
+                activity_regularizer=regularizers.l2(1e-5),
+                name=conv_name_base + '2a')(input_tensor)
     x = BatchNormalization(name=bn_name_base + '2a')(x)
     x = Activation('relu')(x)
 
@@ -58,12 +56,10 @@ def identity_block(input_tensor, kernel_size, filters, stage, block):
                kernel_size=kernel_size,
                strides=1,
                padding='same',
-              #  kernel_initializer='glorot_uniform',
-              #  kernel_regularizer=regularizers.l2(l=0.0001),
-              kernel_regularizer=regularizers.l1_l2(l1=1e-5, l2=1e-4),
-              bias_regularizer=regularizers.l2(1e-4),
-              activity_regularizer=regularizers.l2(1e-5),
-              name=conv_name_base + '2b')(x)
+                kernel_regularizer=regularizers.l1_l2(l1=1e-5, l2=1e-4),
+                bias_regularizer=regularizers.l2(1e-4),
+                activity_regularizer=regularizers.l2(1e-5),
+                name=conv_name_base + '2b')(x)
     x = BatchNormalization(name=bn_name_base + '2b')(x)
 
     # up-sample from the activation maps.

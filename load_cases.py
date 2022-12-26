@@ -1,14 +1,4 @@
-from sklearn.model_selection import train_test_split
-from preprocessing.utils import convert_one_hot, choosing_features
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import VotingClassifier
-from sklearn.svm import SVC
-
-from sklearn.metrics import accuracy_score
-import argparse
+from preprocessing.utils import convert_one_hot
 import numpy as np
 
 def get_data(opt):

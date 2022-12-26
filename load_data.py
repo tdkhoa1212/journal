@@ -1,18 +1,6 @@
 import numpy as np
 import os
-import pandas as pd
-import scipy.io
-import tensorflow as tf
-from preprocessing.denoise_signal import Fourier, SVD_denoise, Wavelet, Wavelet_denoise, savitzky_golay
-from preprocessing.utils import get_spectrogram, one_hot, concatenate_data, divide_sample, load_PU_data, scale_data, load_table_10
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import MaxAbsScaler
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import RobustScaler
-from sklearn.preprocessing import Normalizer
-from sklearn.preprocessing import QuantileTransformer
-from sklearn.preprocessing import PowerTransformer
+from preprocessing.utils import  one_hot, concatenate_data, divide_sample, load_PU_data, load_table_10
 # from train import parse_opt
 from train import parse_opt
 
